@@ -29,58 +29,63 @@ export default function Products() {
       id: 1,
       name: "단체복 티셔츠",
       description: "고품질 면소재의 단체복 티셔츠, 다양한 색상과 사이즈 제공",
-      price: "15,000원~",
-      image: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296",
-      naverLink: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296" // 실제 링크로 교체
+      price: "7,000원~",
+      image: "https://shop-phinf.pstatic.net/20250426_245/1745629116977NJjhB_PNG/43196368608211985_1664753144.png?type=f296_296",
+      naverLink: "https://smartstore.naver.com/yejinsports/products/11570696163" // 실제 링크로 교체
     },
     {
       id: 2,
       name: "운동복 세트",
       description: "스포츠 활동에 최적화된 운동복 세트, 통기성과 내구성이 뛰어남",
-      price: "35,000원~",
-      image: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296",
-      naverLink: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296" // 실제 링크로 교체
+      price: "31,500원~",
+      image: "https://shop-phinf.pstatic.net/20250323_111/1742693511101SDK08_JPEG/77047923913393903_1667810996.jpeg?type=f296_296",
+      naverLink: "https://smartstore.naver.com/yejinsports/products/11626269512" // 실제 링크로 교체
     },
     {
       id: 3,
       name: "작업복",
       description: "안전하고 편안한 작업환경을 위한 전문 작업복",
-      price: "25,000원~",
-      image: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296",
-      naverLink: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296" // 실제 링크로 교체
+      price: "53,400원~",
+      image: "https://shop-phinf.pstatic.net/20241210_235/1733821423794lqWqk_PNG/67954236847198656_1657347757.png?type=f296_296",
+      naverLink: "https://smartstore.naver.com/yejinsports/products/11232645611" // 실제 링크로 교체
     },
     {
       id: 4,
       name: "유니폼",
       description: "깔끔하고 세련된 디자인의 직업복 유니폼",
-      price: "28,000원~",
-      image: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296",
-      naverLink: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296" // 실제 링크로 교체
+      price: "28,500원~",
+      image: "https://shop-phinf.pstatic.net/20241203_248/1733207864658LGcEU_PNG/9695240864465064_567964432.png?type=f296_296",
+      naverLink: "https://smartstore.naver.com/yejinsports/products/11206389085" // 실제 링크로 교체
     },
     {
       id: 5,
       name: "스포츠 자켓",
       description: "보온성과 활동성을 모두 갖춘 스포츠 자켓",
-      price: "45,000원~",
+      price: "22,000원~",
       image: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296",
-      naverLink: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296" // 실제 링크로 교체
+      naverLink: "https://smartstore.naver.com/yejinsports/products/11702608648" // 실제 링크로 교체
     },
     {
       id: 6,
-      name: "단체 모자",
-      description: "단체의 정체성을 나타내는 맞춤 제작 모자",
-      price: "8,000원~",
-      image: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296",
-      naverLink: "https://shop-phinf.pstatic.net/20250410_126/1744281925656foxOq_PNG/265610785723091_1616888940.png?type=f296_296" // 실제 링크로 교체
+      name: "체육 대회 반티",
+      description: "체육 대회용 반팔티 다양한 축구 팀의 티셔츠!",
+      price: "18,500원~",
+      image: "https://shop-phinf.pstatic.net/20240423_54/1713879438382KI5Fv_PNG/115015337060449663_465253971.png?type=f296_296",
+      naverLink: "https://smartstore.naver.com/yejinsports/products/10246357854" // 실제 링크로 교체
     }
   ];
 
   const categories = [
-    { name: "전체", count: products.length },
-    { name: "상의", count: 3 },
-    { name: "하의", count: 2 },
-    { name: "세트", count: 2 },
-    { name: "액세서리", count: 1 }
+    { name: "전체 (99+)", count: '99+' },
+    { name: "반팔티", count: '99+' },
+    { name: "긴티", count: '99+' },
+    { name: "작업복", count: '99+' },
+    { name: "유니폼", count: '99+' },
+    { name: "조끼", count: '99+' },
+    { name: "스포츠 자켓", count: '99+' },
+    { name: "기타", count: '99+' },
+    
+    
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("전체");
@@ -118,7 +123,7 @@ export default function Products() {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              {category.name} ({category.count})
+              {category.name} 
             </button>
           ))}
         </div>
