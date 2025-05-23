@@ -29,6 +29,8 @@ export default function Hero() {
       <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce"></div>
       <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-white/20 rounded-full animate-ping"></div>
+      <div className="absolute top-1/4 right-1/5 w-8 h-8 bg-white/20 rounded-full animate-spin"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce"></div>
 
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <div className={`transition-all duration-1000 transform ${

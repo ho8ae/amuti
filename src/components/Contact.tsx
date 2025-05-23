@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from 'react';
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +13,9 @@ export default function Contact() {
     message: ''
   });
   const sectionRef = useRef<HTMLElement>(null);
+
+  // API Gateway 엔드포인트 URL (실제 URL로 교체 필요)
+  const API_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_API_URL || 'https://your-api-id.execute-api.ap-northeast-2.amazonaws.com/prod/contact';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,23 +37,55 @@ export default function Contact() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // 입력 시 상태 메시지 초기화
+    if (submitStatus.message) {
+      setSubmitStatus({ type: '', message: '' });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, company, message } = formData;
-    const subject = `[예진상사 문의] ${company ? `${company} - ` : ''}${name}님의 문의`;
-    const body = `
-이름: ${name}
-이메일: ${email}
-회사/단체: ${company || '개인'}
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
 
-문의내용:
-${message}
-    `;
-    
-    const mailtoLink = `mailto:yejin1630@hanmail.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: result.message
+        });
+        // 폼 초기화
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: result.message || '문의 전송에 실패했습니다.'
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: '네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -154,6 +191,22 @@ ${message}
                 문의하기
               </h3>
               
+              {/* 상태 메시지 */}
+              {submitStatus.message && (
+                <div className={`mb-6 p-4 rounded-lg ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-50 border border-green-200 text-green-800' 
+                    : 'bg-red-50 border border-red-200 text-red-800'
+                }`}>
+                  <div className="flex items-center space-x-2">
+                    <div className="text-lg">
+                      {submitStatus.type === 'success' ? '✅' : '❌'}
+                    </div>
+                    <p>{submitStatus.message}</p>
+                  </div>
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -167,7 +220,8 @@ ${message}
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:bg-gray-100 text-black"
                       placeholder="성함을 입력해주세요"
                     />
                   </div>
@@ -183,7 +237,8 @@ ${message}
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-black focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:bg-gray-100"
                       placeholder="이메일 주소를 입력해주세요"
                     />
                   </div>
@@ -199,7 +254,8 @@ ${message}
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-black focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:bg-gray-100"
                     placeholder="회사나 단체명을 입력해주세요 (선택사항)"
                   />
                 </div>
@@ -215,16 +271,25 @@ ${message}
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none disabled:bg-gray-100 text-black"
                     placeholder="문의하실 내용을 자세히 적어주세요"
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  문의 보내기
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>전송 중...</span>
+                    </div>
+                  ) : (
+                    '문의 보내기'
+                  )}
                 </button>
               </form>
               

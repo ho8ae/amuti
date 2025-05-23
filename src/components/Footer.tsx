@@ -116,6 +116,16 @@ export default function Footer() {
                   yejin1630@hanmail.net
                 </a>
               </div>
+
+              <div>
+                <p className="text-sm text-gray-400 mb-1">전화번호</p>
+                <a 
+                  href="tel:01037107457"
+                  className="text-blue-400 hover:text-blue-300 transition-colors duration-300"
+                >
+                  010-3710-7457
+                </a>
+              </div>
               
               <div>
                 <p className="text-sm text-gray-400 mb-1">사업장 소재지</p>
