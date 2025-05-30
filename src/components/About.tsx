@@ -121,23 +121,24 @@ export default function About() {
                   <div>
                     <p className="font-semibold text-gray-800">사업장 소재지</p>
                     <p className="text-gray-600">
-                      서울특별시 중구 다산로36가길 26, 106호<br />
-                      (신당동, 그린하우스)
+                      서울특별시 중구 다산로36가길 26 106호
                     </p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm font-bold">이</span>
+                    <span className="text-white text-sm font-bold">연</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">이메일</p>
+                    <p className="font-semibold text-gray-800">연락처</p>
                     <a 
                       href="mailto:yejin1630@hanmail.net" 
                       className="text-blue-600 hover:text-blue-800 transition-colors"
                     >
-                      yejin1630@hanmail.net
+                    전화번호: 02-2233-8662
+                    <br/>
+                     이메일: yejin1630@hanmail.net
                     </a>
                   </div>
                 </div>

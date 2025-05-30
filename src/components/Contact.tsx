@@ -90,15 +90,15 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: "📧",
-      title: "이메일",
-      content: "yejin1630@hanmail.net",
+      icon: "📞",
+      title: "연락처",
+      content: "전화번호: 02-2233-8662\n 이메일: yejin1630@hanmail.net",
       action: () => window.location.href = "mailto:yejin1630@hanmail.net"
     },
     {
       icon: "📍",
       title: "사업장 주소",
-      content: "서울특별시 중구 다산로36가길 26, 106호\n(신당동, 그린하우스)",
+      content: "서울특별시 중구 다산로36가길 26",
       action: () => window.open("https://map.naver.com/v5/search/서울특별시%20중구%20다산로36가길%2026", "_blank")
     },
     {
@@ -176,7 +176,7 @@ export default function Contact() {
               <h4 className="text-xl font-bold mb-3">💡 빠른 문의 팁</h4>
               <ul className="space-y-2 text-blue-100">
                 <li>• 단체복 주문 시 수량과 원하는 디자인을 알려주세요</li>
-                <li>• 급한 주문은 전화 또는 이메일로 먼저 연락해주세요</li>
+                <li>• 급한 주문은 전화 또는 연락처로 먼저 문자해주세요</li>
                 <li>• 맞춤 제작 문의 시 로고나 디자인 파일을 첨부해주세요</li>
               </ul>
             </div>

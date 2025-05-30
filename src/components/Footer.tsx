@@ -120,10 +120,10 @@ export default function Footer() {
               <div>
                 <p className="text-sm text-gray-400 mb-1">전화번호</p>
                 <a 
-                  href="tel:01037107457"
+                  href="tel:0222338662"
                   className="text-blue-400 hover:text-blue-300 transition-colors duration-300"
                 >
-                  010-3710-7457
+                  02-2233-8662
                 </a>
               </div>
               
