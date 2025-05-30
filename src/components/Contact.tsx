@@ -91,8 +91,8 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: "📞",
-      title: "연락처",
-      content: "전화번호: 02-2233-8662\n 이메일: yejin1630@hanmail.net",
+      title: "상담문의",
+      content:"연락처: 010-3710-7457\n 전화번호: 02-2233-8662\n 이메일: yejin1630@hanmail.net",
       action: () => window.location.href = "mailto:yejin1630@hanmail.net"
     },
     {

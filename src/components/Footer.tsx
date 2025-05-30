@@ -99,7 +99,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div>
                 <p className="text-sm text-gray-400 mb-1">상호명</p>
-                <p className="text-gray-300">예진상사</p>
+                <p className="text-gray-300">예진상사 (201-05-41778)</p>
               </div>
               
               <div>
@@ -118,20 +118,20 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="text-sm text-gray-400 mb-1">전화번호</p>
+                <p className="text-sm text-gray-400 mb-1">상담문의</p>
                 <a 
                   href="tel:0222338662"
                   className="text-blue-400 hover:text-blue-300 transition-colors duration-300"
                 >
-                  02-2233-8662
+                  010-3710-7457, 02-2233-8662
                 </a>
               </div>
               
               <div>
                 <p className="text-sm text-gray-400 mb-1">사업장 소재지</p>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  서울특별시 중구 다산로36가길 26, 106호<br />
-                  (신당동, 그린하우스)
+                  서울특별시 중구 다산로36가길 26<br />
+               
                 </p>
               </div>
             </div>

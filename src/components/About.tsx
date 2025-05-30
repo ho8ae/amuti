@@ -128,14 +128,16 @@ export default function About() {
                 
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm font-bold">연</span>
+                    <span className="text-white text-sm font-bold">상</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">연락처</p>
+                    <p className="font-semibold text-gray-800">상담문의</p>
                     <a 
                       href="mailto:yejin1630@hanmail.net" 
                       className="text-blue-600 hover:text-blue-800 transition-colors"
                     >
+                      연락처: 010-3710-7457
+                    <br/>
                     전화번호: 02-2233-8662
                     <br/>
                      이메일: yejin1630@hanmail.net
